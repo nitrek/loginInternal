@@ -31,6 +31,24 @@ function openOrganiser()
 		window.open(base+data[email]+"/web/iou/org.html", '_blank');
 	}
 }
+
+function readTextFile(file)
+{
+    var rawFile = new XMLHttpRequest();
+    rawFile.open("GET", file, false);
+    rawFile.onreadystatechange = function ()
+    {
+        if(rawFile.readyState === 4)
+        {
+            if(rawFile.status === 200 || rawFile.status == 0)
+            {
+                var allText = rawFile.responseText;
+                alert(allText);
+            }
+        }
+    }
+    rawFile.send(null);
+}
 /*
 xhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
